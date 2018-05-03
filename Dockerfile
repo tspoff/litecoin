@@ -1,6 +1,7 @@
 FROM ubuntu:16.04
 
-COPY ./litecoin.conf /root/.litecoin/litecoin.conf
+#Re-enable once conf changes are done
+#COPY ./litecoin.conf /root/.litecoin/litecoin.conf
 
 COPY . /litecoin
 WORKDIR /litecoin
