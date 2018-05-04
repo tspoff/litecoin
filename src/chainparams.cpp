@@ -212,10 +212,10 @@ public:
         nDefaultPort = 19335;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1486949366, 293345, 0x1e0ffff0, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1525275524, 2085523983, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x4966625a4b2851d9fdee139e56211a0d88575f59ed816ff5e6a63deb4e3e29a0"));
-        assert(genesis.hashMerkleRoot == uint256S("0x97ddfbbae6be97fd6cdf3e7ca13232a3afff2353e29badfab7f73011edd4ced9"));
+        assert(consensus.hashGenesisBlock == uint256S("0x95093b5e0a050209f77c6f6a870652897fa045ee0938209abd585ff6cc7c41fd"));
+        assert(genesis.hashMerkleRoot == uint256S("0xf0bd04599892ecbd27ce89f73a7d41a096979bb6b85b239904226885f77f92aa"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -231,7 +231,7 @@ public:
         base58Prefixes[EXT_PUBLIC_KEY] = {0x04, 0x35, 0x87, 0xCF};
         base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x35, 0x83, 0x94};
 
-        bech32_hrp = "tltc";
+        bech32_hrp = "tltc";q
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_test, pnSeed6_test + ARRAYLEN(pnSeed6_test));
 
@@ -239,16 +239,18 @@ public:
         fRequireStandard = false;
         fMineBlocksOnDemand = false;
 
-        checkpointData = (CCheckpointData){
+        checkpointData = {
             {
-                {2056, uint256S("17748a31ba97afdc9a4f86837a39d287e3e7c7290a08a1d816c5969c78a83289")},
+                {0, uint256S("0x95093b5e0a050209f77c6f6a870652897fa045ee0938209abd585ff6cc7c41fd")},
             }};
 
-        chainTxData = ChainTxData{
-            // Data as of block a0afbded94d4be233e191525dc2d467af5c7eab3143c852c3cd549831022aad6 (height 343833)
-            1516406749,
-            794057,
-            0.01};
+        chainTxData = ChainTxData
+        {
+            // Data as of block 59c9b9d3fec105bdc716d84caa7579503d5b05b73618d0bf2d5fa639f780a011 (height 1353397).
+            1525275524, // * UNIX timestamp of last known number of transactions
+                0,      // * total number of transactions between genesis and that timestamp
+                        //   (the tx=... number in the SetBestChain debug.log lines)
+                0.0     // * estimated number of transactions per second after that timestamp
     }
 };
 
