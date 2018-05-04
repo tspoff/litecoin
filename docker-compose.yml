@@ -1,9 +1,23 @@
 version: '3'
 services:
-  web:
+  miner:
     build: .
     ports:
-     - "5000:5000"
-     - "9678:9678"
-  redis:
-    image: "tspoff/wishcoin"
+      - "4000:9666"
+    expose:
+      - "9666"
+    command: [ "litecoind", "-addnode=node1:9666", "-addnode=node2:9666"]
+  node1:
+    build: .
+    ports:
+      - "4001:9666"
+    expose:
+      - "9666"
+    command: [ "litecoind", "-addnode=miner:9666", "-addnode=node2:9666"]
+  node2:
+    build: .
+    ports:
+      - "4002:9666"
+    expose:
+      - "9666"
+    command: [ "litecoind", "-addnode=node1:9666", "-addnode=miner:9666"]

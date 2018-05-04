@@ -30,6 +30,6 @@ RUN make
 RUN make install
 
 #open service port
-EXPOSE 9678 19666
+EXPOSE 9666 19666
 
 CMD ["litecoind", "--printtoconsole"]
